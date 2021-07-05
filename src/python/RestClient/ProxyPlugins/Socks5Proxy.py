@@ -1,4 +1,5 @@
-from urlparse import urlparse
+from urllib.parse import urlparse
+
 
 class Socks5Proxy(object):
     """Socks5 Proxy Plugin for pycurl
@@ -16,4 +17,5 @@ class Socks5Proxy(object):
         curl_object.setopt(curl_object.PROXYPORT, self._proxy_port)
         curl_object.setopt(curl_object.PROXYTYPE, curl_object.PROXYTYPE_SOCKS5)
         if self._proxy_user and self._proxy_passwd:
-            curl_object.setopt(curl_object.PROXYUSERPWD, '%s:%s' % (self._proxy_user, self._proxy_port)) 
+            curl_object.setopt(curl_object.PROXYUSERPWD, '%s:%s' % (self._proxy_user, self._proxy_port))
+

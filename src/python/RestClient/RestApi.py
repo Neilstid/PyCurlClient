@@ -2,12 +2,13 @@ from RestClient.RequestHandling.HTTPRequest import HTTPRequest
 
 import pycurl
 
+
 class RestApi(object):
     def __init__(self, auth=None, proxy=None, additional_curl_options=None, use_shared_handle=False):
         self._curl = pycurl.Curl()
 
         if use_shared_handle:
-            ###use shared Cookie, DNS and SSL Session ID caches when operating multi-threaded
+            # use shared Cookie, DNS and SSL Session ID caches when operating multi-threaded
             shared_curl = pycurl.CurlShare()
             shared_curl.setopt(pycurl.SH_SHARE, pycurl.LOCK_DATA_COOKIE)
             shared_curl.setopt(pycurl.SH_SHARE, pycurl.LOCK_DATA_DNS)
@@ -50,3 +51,4 @@ class RestApi(object):
                                    request_headers=request_headers,
                                    additional_curl_options=self._additional_curl_options)
         return http_request(self._curl)
+

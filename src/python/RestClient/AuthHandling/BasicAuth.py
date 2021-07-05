@@ -3,13 +3,14 @@ from RestClient.ErrorHandling.RestClientExceptions import ClientAuthException
 
 import sys
 
+
 class BasicAuth(object):
     def __init__(self, username=None, password=None):
         self._username = username
         self._password = password
 
         if sys.stdin.isatty() and not self._username:
-            self._username = raw_input('User:')
+            self._username = input('User:')
 
         if sys.stdin.isatty() and not self._password:
             self._password = getpass("Password:")
@@ -24,3 +25,4 @@ class BasicAuth(object):
     @property
     def userpwd(self):
         return self._username, self._password
+

@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-
-from __future__ import division, print_function
-
 import os
 import sys
 from setuptools import setup
@@ -41,3 +38,4 @@ setup(name="pycurl-client",
       url="https://github.com/dmwm/DBS",
       license="Apache License, Version 2.0",
       )
+

@@ -9,6 +9,7 @@ class ClientAuthException(Exception):
     def __str__(self):
         return repr(self._msg)
 
+
 class HTTPError(Exception):
     def __init__(self, url, code, msg, header, body):
         self.url = url
@@ -23,3 +24,4 @@ class HTTPError(Exception):
 
     def __str__(self):
         return ('HTTP Error %d: %s' % (self.code, self.msg))
+

@@ -1,10 +1,13 @@
 from getpass import getpass
 from RestClient.ErrorHandling.RestClientExceptions import ClientAuthException
 
-import os, sys
+import os
+import sys
+
 
 class X509Auth(object):
-    def __init__(self, ca_path=None, ssl_cert=None, ssl_key=None, ssl_verifypeer=True, ca_info=None):
+    def __init__(self, ca_path=None, ssl_cert=None, ssl_key=None,
+                 ssl_verifypeer=True, ca_info=None):
         self._ca_path = ca_path
         self._ssl_cert = ssl_cert
         self._ssl_key = ssl_key
@@ -16,9 +19,10 @@ class X509Auth(object):
         if not self._ca_path:
             self.__search_ca_path()
 
-        #Check if ssl_cert, ssl_key and ca_path do exist
+        # Check if ssl_cert, ssl_key and ca_path do exist
         if not (os.path.isfile(self._ssl_key) and os.path.isfile(self._ssl_cert)):
-            raise ClientAuthException("key or cert file does not exist: %s, %s" % (self._ssl_key, self._ssl_cert))
+            raise ClientAuthException("key or cert file does not exist: %s, %s" %
+                                      (self._ssl_key, self._ssl_cert))
 
         if not (os.path.isdir(self._ca_path)):
             raise ClientAuthException("CA path does not exist: %s" % (self._ca_path))
@@ -35,7 +39,7 @@ class X509Auth(object):
 
         else:
             raise ClientAuthException("Could not find a valid CA path")
-    
+
     def __search_cert_key(self):
         """
         Get the user credentials if they exist, otherwise throw an exception.
@@ -72,12 +76,12 @@ class X509Auth(object):
                 self._ssl_cert = user_cert
                 if os.path.exists(user_key):
                     self._ssl_key = user_key
-                    #store password for convenience
+                    # store password for convenience
                     self._ssl_key_pass = getpass("Password for %s: " % self._ssl_key)
                 else:
                     self._ssl_key = self._ssl_cert
             else:
-                raise ClientAuthException("No valid X509 cert-key-pair found.")    
+                raise ClientAuthException("No valid X509 cert-key-pair found.")
 
         else:
             raise ClientAuthException("No valid X509 cert-key-pair found.")
@@ -96,3 +100,4 @@ class X509Auth(object):
     @property
     def ssl_key_pass(self):
         return getattr(self, '_ssl_key_pass', None)
+
