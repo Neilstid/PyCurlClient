@@ -35,7 +35,7 @@ setup(name="pycurl-client",
                 'RestClient.RequestHandling'],
       package_dir={'': 'src/python/'},
       install_requires=parse_requirements(requirements),
-      url="https://github.com/dmwm/DBS",
+      url="https://github.com/Neilstid/PyCurlClient",
       license="Apache License, Version 2.0",
       )
 
