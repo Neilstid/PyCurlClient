@@ -10,7 +10,7 @@ systems = \
 
   'pycurl-client':
   {
-    'srcdir': '/src/python',
+    'srcdir': 'src/python',
     'pythonmods': ['RestClient.__init__',
                    'RestClient.RestApi'],
     'pythonpkg': ['RestClient.AuthHandling',
