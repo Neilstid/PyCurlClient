@@ -4,7 +4,7 @@ import sys
 from setuptools import setup
 
 # version of pycurl-client, should match current DBS release tag
-package_version = "4.0.0"
+package_version = "4.0.10"
 
 # Requirements file for pip dependencies
 requirements = "requirements.txt"
@@ -24,7 +24,7 @@ def parse_requirements(requirements_file):
         sys.exit(1)
 
 
-setup(name="pycurl-client",
+setup(name="dbs3-pycurl",
       version=package_version,
       maintainer="CMS DWMWM Group",
       maintainer_email="hn-cms-dmDevelopment@cern.ch",

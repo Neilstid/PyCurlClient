@@ -193,8 +193,11 @@ class InstallCommand(install):
       self.run_command(cmd_name)
       self.distribution.have_run[cmd_name] = 1
 
-setup(name = 'dbs',
-      version = '3.4.4',
+setup(name = 'dbs3-pycurl',
+      version = '4.0.8',
       maintainer_email = 'hn-cms-dmDevelopment@cern.ch',
       cmdclass = {'build_system': BuildCommand,
-                  'install_system': InstallCommand})
+                  'install_system': InstallCommand},
+      install_requires = [
+            'pycurl'
+    ])

@@ -1,0 +1,8 @@
+MANIFEST.in
+requirements.txt
+setup.py
+dbs3_pycurl.egg-info/PKG-INFO
+dbs3_pycurl.egg-info/SOURCES.txt
+dbs3_pycurl.egg-info/dependency_links.txt
+dbs3_pycurl.egg-info/requires.txt
+dbs3_pycurl.egg-info/top_level.txt
